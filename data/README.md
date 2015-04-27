@@ -10,8 +10,10 @@ Direct Link: http://www.archive.org/download/flatland_rg_librivox/flatland_2_abb
 Converted to WAV and trimmed with [Audacity][]  
 Public Domain
 
-Filename: [result_blackbox.wav](result_blackbox.wav)  
-A modification of result.wav (see above).
+[result_blackbox.wav](result_blackbox.wav)  
+[result_blackbox_nonlinear.wav](result_blackbox_nonlinear.wav)  
+[result_convolution_nonlinear.wav](result_convolution_nonlinear.wav)  
+Modifications of result.wav (see above).
 
 Filename: [singing.wav](singing.wav)  
 Attribution: www.openairlib.net  
