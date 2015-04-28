@@ -10,10 +10,17 @@ Direct Link: http://www.archive.org/download/flatland_rg_librivox/flatland_2_abb
 Converted to WAV and trimmed with [Audacity][]  
 Public Domain
 
-[result_blackbox.wav](result_blackbox.wav)  
-[result_blackbox_nonlinear.wav](result_blackbox_nonlinear.wav)  
+Filenames: [result_blackbox.wav](result_blackbox.wav)
+[result_blackbox_nonlinear.wav](result_blackbox_nonlinear.wav)
 [result_convolution_nonlinear.wav](result_convolution_nonlinear.wav)  
-Modifications of result.wav (see above).
+Modifications of result.wav (see above).  
+[![CC0 1.0 Public Domain Dedication](cc-zero.png)][CC0 1.0]
+
+Filename: [rir_clap.wav](rir_clap.wav)  
+Description: The room impulse response (RIR) of a seminar room, measured by
+  clapping two wooden boards together and recording the result with a
+  microphone.  
+[![CC0 1.0 Public Domain Dedication](cc-zero.png)][CC0 1.0]
 
 Filename: [singing.wav](singing.wav)  
 Attribution: www.openairlib.net  
@@ -22,4 +29,5 @@ Source: http://www.openairlib.net/anechoicdb/content/operatic-voice
 License: [![Creative Commons Attribution-ShareAlike](by-sa.png)][CC BY-SA 3.0]
 
 [Audacity]: http://audacityteam.org/
+[CC0 1.0]: http://creativecommons.org/publicdomain/zero/1.0/
 [CC BY-SA 3.0]: http://creativecommons.org/licenses/by-sa/3.0/

@@ -4,6 +4,41 @@ import numpy as np
 from scipy import signal
 
 
+def normalize(x, maximum=1, axis=None, out=None):
+    """Normalize an array to the given maximum (absolute) value.
+
+    Parameters
+    ----------
+    x : array_like
+        Input signal.
+    maximum : float or sequence of floats, optional
+        Desired (absolute) maximum value.  By default, the signal is
+        normalized to +-1.0.  If a sequence is given, it must have the
+        same length as the dimension given by `axis`.  Each sub-array
+        along the given axis is normalized with one of the values.
+    axis : int, optional
+        Normalize along a given axis.
+        By default, the flattened array is normalized.
+    out : numpy.ndarray or similar
+        If given, the result is stored in `out` and `out` is returned.
+        If `out` points to the same memory as `x`, the normalization
+        happens in-place.
+
+    Returns
+    -------
+    numpy.ndarray
+        The normalized signal.
+
+    """
+    if axis is None and not np.isscalar(maximum):
+        raise TypeError("If axis is not specified, maximum must be a scalar")
+
+    maximum = np.max(np.abs(x), axis=axis) / maximum
+    if axis is not None:
+        maximum = np.expand_dims(maximum, axis=axis)
+    return np.true_divide(x, maximum, out)
+
+
 def blackbox(x, samplerate, axis=-1):
     """Some unknown (except that it's LTI) digital system.
 
@@ -19,7 +54,7 @@ def blackbox(x, samplerate, axis=-1):
 
     Returns
     -------
-    numpy.array
+    numpy.ndarray
         The output signal.
 
     """
