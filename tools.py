@@ -1,7 +1,12 @@
 """Some tools used in the communication acoustics exercises."""
 
 import numpy as np
-from scipy import signal
+import os
+#from scipy import signal
+try:
+    from urllib.request import Request, urlopen  # Python 3.x
+except ImportError:
+    from urllib2 import Request, urlopen  # Python 2.x
 
 
 def normalize(x, maximum=1, axis=None, out=None):
@@ -78,3 +83,43 @@ def blackbox_nonlinear(x, samplerate, axis=-1):
     out = blackbox(x, samplerate, axis)
     x = np.max(np.abs(out)) * thr
     return np.clip(out, -x, x, out=out)
+
+
+class HttpFile(object):
+
+    """based on http://stackoverflow.com/a/7852229/500098"""
+
+    def __init__(self, url):
+        self._url = url
+        self._offset = 0
+        self._content_length = None
+
+    def __len__(self):
+        if self._content_length is None:
+            response = urlopen(self._url)
+            self._content_length = int(response.headers["Content-length"])
+        return self._content_length
+
+    def read(self, size=-1):
+        request = Request(self._url)
+        if size < 0:
+            end = len(self) - 1
+        else:
+            end = self._offset + size - 1
+        request.add_header('Range', "bytes={0}-{1}".format(self._offset, end))
+        data = urlopen(request).read()
+        self._offset += len(data)
+        return data
+
+    def seek(self, offset, whence=os.SEEK_SET):
+        if whence == os.SEEK_SET:
+            self._offset = offset
+        elif whence == os.SEEK_CUR:
+            self._offset += offset
+        elif whence == os.SEEK_END:
+            self._offset = len(self) + offset
+        else:
+            raise ValueError("Invalid whence")
+
+    def tell(self):
+        return self._offset
