@@ -5,7 +5,7 @@ from scipy import signal
 
 
 def normalize(x, maximum=1, axis=None, out=None):
-    """Normalize an array to the given maximum (absolute) value.
+    """Normalize a signal to the given maximum (absolute) value.
 
     Parameters
     ----------
@@ -19,7 +19,7 @@ def normalize(x, maximum=1, axis=None, out=None):
     axis : int, optional
         Normalize along a given axis.
         By default, the flattened array is normalized.
-    out : numpy.ndarray or similar
+    out : numpy.ndarray or similar, optional
         If given, the result is stored in `out` and `out` is returned.
         If `out` points to the same memory as `x`, the normalization
         happens in-place.
