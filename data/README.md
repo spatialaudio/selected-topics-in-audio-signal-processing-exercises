@@ -8,11 +8,14 @@ Description: A very short excerpt from the LibriVox recording of the book
 Source Information: https://librivox.org/flatland-a-romance-of-many-dimensions-by-edwin-abbott-abbott/  
 Direct Link: http://www.archive.org/download/flatland_rg_librivox/flatland_2_abbott.mp3  
 Converted to WAV and trimmed with [Audacity][]  
-Public Domain
+![Public Domain](publicdomain.png)
 
-Filenames: [result_blackbox.wav](result_blackbox.wav)
+Filenames:
+[result_blackbox.wav](result_blackbox.wav)
 [result_blackbox_nonlinear.wav](result_blackbox_nonlinear.wav)
-[result_convolution_nonlinear.wav](result_convolution_nonlinear.wav)  
+[result_clap.wav](result_clap.wav)
+[result_convolution_nonlinear.wav](result_convolution_nonlinear.wav)
+[result_pori.wav](result_pori.wav)  
 Modifications of result.wav (see above).  
 [![CC0 1.0 Public Domain Dedication](cc-zero.png)][CC0 1.0]
 
