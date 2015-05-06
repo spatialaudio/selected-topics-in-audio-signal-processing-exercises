@@ -2,7 +2,7 @@
 
 import numpy as np
 import os
-#from scipy import signal
+from scipy import signal
 try:
     from urllib.request import Request, urlopen  # Python 3.x
 except ImportError:
