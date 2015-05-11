@@ -35,6 +35,12 @@ Description: The binaural room impulse response (BRIR) of a seminar room,
 [![CC0 1.0 Public Domain Dedication](cc-zero.png)][CC0 1.0]
 
 
+Filename: [THOMSON_HED415N_KEMAR_hcomp.wav](THOMSON_HED415N_KEMAR_hcomp.wav)  
+Description: Impulse response of a headphone compensation filter for
+  THOMSON HED415N headphones on a KEMAR dummy head.
+[![CC0 1.0 Public Domain Dedication](cc-zero.png)][CC0 1.0]
+
+
 Filename: [singing.wav](singing.wav)  
 Attribution: www.openairlib.net  
 Description: An operatic voice recorded in an anechoic chamber  
