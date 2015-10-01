@@ -1,0 +1,3 @@
+PySoundFile
+sfs
+sounddevice
