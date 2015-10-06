@@ -1,5 +1,5 @@
 """Some tools used in the communication acoustics exercises."""
-
+from __future__ import division  # Only needed for Python 2.x
 import numpy as np
 import os
 from scipy import signal
@@ -44,7 +44,66 @@ def normalize(x, maximum=1, axis=None, out=None):
     return np.true_divide(x, maximum, out)
 
 
-def blackbox(x, samplerate, axis=-1):
+def fade(x, in_length, out_length=None, type='l', copy=True):
+    """Apply fade in/out to a signal.
+
+    If `x` is two-dimenstional, this works along the columns (= first
+    axis).
+
+    This is based on the *fade* effect of SoX, see:
+    http://sox.sourceforge.net/sox.html
+
+    The C implementation can be found here:
+    http://sourceforge.net/p/sox/code/ci/master/tree/src/fade.c
+
+    Parameters
+    ----------
+    x : array_like
+        Input signal.
+    in_length : int
+        Length of fade-in in samples (contrary to SoX, where this is
+        specified in seconds).
+    out_length : int, optional
+        Length of fade-out in samples.  If not specified, `fade_in` is
+        used also for the fade-out.
+    type : {'t', 'q', 'h', 'l', 'p'}, optional
+        Select the shape of the fade curve: 'q' for quarter of a sine
+        wave, 'h' for half a sine wave, 't' for linear ("triangular")
+        slope, 'l' for logarithmic, and 'p' for inverted parabola.
+        The default is logarithmic.
+    copy : bool, optional
+        If `False`, the fade is applied in-place and a reference to
+        `x` is returned.
+
+    """
+    x = np.array(x, copy=copy)
+
+    if out_length is None:
+        out_length = in_length
+
+    def make_fade(length, type):
+        fade = np.arange(length) / length
+        if type == 't':  # triangle
+            pass
+        elif type == 'q':  # quarter of sinewave
+            fade = np.sin(fade * np.pi / 2)
+        elif type == 'h':  # half of sinewave... eh cosine wave
+            fade = (1 - np.cos(fade * np.pi)) / 2
+        elif type == 'l':  # logarithmic
+            fade = np.power(0.1, (1 - fade) * 5)  # 5 means 100 db attenuation
+        elif type == 'p':  # inverted parabola
+            fade = (1 - (1 - fade)**2)
+        else:
+            raise ValueError("Unknown fade type {0!r}".format(type))
+        return fade
+
+    # Using .T w/o [:] causes error: https://github.com/numpy/numpy/issues/2667
+    x[:in_length].T[:] *= make_fade(in_length, type)
+    x[len(x) - out_length:].T[:] *= make_fade(out_length, type)[::-1]
+    return x
+
+
+def blackbox(x, samplerate, axis=0):
     """Some unknown (except that it's LTI) digital system.
 
     Parameters
@@ -55,7 +114,7 @@ def blackbox(x, samplerate, axis=-1):
         Sampling rate in Hertz.
     axis : int, optional
         The axis of the input data array along which to apply the
-        system.  By default, this is the last axis.
+        system.  By default, this is the first axis.
 
     Returns
     -------
@@ -70,7 +129,7 @@ def blackbox(x, samplerate, axis=-1):
     return signal.lfilter(b, a, x, axis)
 
 
-def blackbox_nonlinear(x, samplerate, axis=-1):
+def blackbox_nonlinear(x, samplerate, axis=0):
     """Some unknown (except that it's non-linear) digital system.
 
     See Also
