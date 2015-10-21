@@ -103,6 +103,22 @@ def fade(x, in_length, out_length=None, type='l', copy=True):
     return x
 
 
+def db(x, power=False):
+    """Convert a signal to decibel.
+
+    Parameters
+    ----------
+    x : array_like
+        Input signal.  Values of 0 lead to negative infinity.
+    power : bool, optional
+        If `power=False` (the default), `x` is squared before
+        conversion.
+
+    """
+    with np.errstate(divide='ignore'):
+        return 10 if power else 20 * np.log10(np.abs(x))
+
+
 def blackbox(x, samplerate, axis=0):
     """Some unknown (except that it's LTI) digital system.
 
