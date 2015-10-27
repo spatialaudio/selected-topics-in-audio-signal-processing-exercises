@@ -57,6 +57,17 @@ Filenames: `xmas_*.wav`
 Description: Modifications of `xmas.wav` (see above).  
 [![CC0 1.0 Public Domain Dedication](cc-zero.png)][CC0 1.0]
 
+
+Filename: [castanets_dry.wav](castanets_dry.wav)  
+Description: re-programmed castanets rhythm from [EBU SQAM CD](https://tech.ebu.ch/publications/sqamcd) track 27  
+Source: https://iaem.at/Members/frank/sounds/castanets-dry  
+[![CC0 1.0 Public Domain Dedication](cc-zero.png)][CC0 1.0]
+
+Filenames: `castanets_*.wav`  
+Description: Modifications of `castanets_dry.wav` (see above).  
+[![CC0 1.0 Public Domain Dedication](cc-zero.png)][CC0 1.0]
+
+
 [Audacity]: http://audacityteam.org/
 [CC0 1.0]: http://creativecommons.org/publicdomain/zero/1.0/
 [CC BY-SA 3.0]: http://creativecommons.org/licenses/by-sa/3.0/
