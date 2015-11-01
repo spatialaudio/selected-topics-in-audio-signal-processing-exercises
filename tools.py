@@ -161,7 +161,6 @@ def blackbox_nonlinear(x, samplerate, axis=0):
 
 
 class HttpFile(object):
-
     """based on http://stackoverflow.com/a/7852229/500098"""
 
     def __init__(self, url):
