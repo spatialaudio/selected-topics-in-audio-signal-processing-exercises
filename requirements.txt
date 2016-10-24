@@ -1,6 +1,0 @@
-jupyter
-notebook
-ipykernel
-sfs==0.2.0
-sounddevice
-soundfile
