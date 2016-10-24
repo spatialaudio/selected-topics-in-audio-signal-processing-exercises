@@ -1,13 +1,12 @@
 FROM andrewosh/binder-base
 
-MAINTAINER Matthias Geier <Matthias.Geier@gmail.com>
+MAINTAINER Fiete Winter <Fiete.Winter@uni-rostock.de>
 
 USER root
 
 # install OS packages
 RUN apt-get update
-RUN apt-get install -y libsndfile1 sndfile-programs sox libsox-fmt-all
-RUN apt-get install -y vorbis-tools
+RUN apt-get install -y libsndfile1 sndfile-programs
 
 USER main
 
