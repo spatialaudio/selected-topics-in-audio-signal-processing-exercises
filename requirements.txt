@@ -1,6 +1,9 @@
 jupyter
 notebook
 ipykernel
+matplotlib
+numpy
+scipy
 sfs==0.5.0
 sounddevice
 soundfile
