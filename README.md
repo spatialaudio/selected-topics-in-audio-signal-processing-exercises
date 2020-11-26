@@ -4,7 +4,7 @@ Selected Topics in Audio Signal Processing - Exercises
 - [static web pages (using nbviewer)](http://nbviewer.ipython.org/github/spatialaudio/selected-topics-in-audio-signal-processing-exercises/blob/master/index.ipynb)
 - [interactive web based (using mybinder)](https://mybinder.org/v2/gh/spatialaudio/selected-topics-in-audio-signal-processing-exercises/HEAD?filepath=index.ipynb)
 
-- for local usage create an conda environment (`mystiasp`), clone the git repository
+- for local usage create a conda environment (`mystiasp`), clone the git repository
 and start jupyter notebook or jupyter lab
   - created with `conda 4.9.2`
   - currently we rely on some older matplotlib version
